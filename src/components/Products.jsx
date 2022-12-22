@@ -1,27 +1,25 @@
 import React from 'react';
-import products from "../products.json";
+import { Col, Container, Row } from 'react-bootstrap';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Cards from './Cards';
+import products from "../products.json";
 
 
-const Cards = () => {
+const Products = () => {
   return (
-    <>
-      {products.map((item, i) => {
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={item.image} />
-          <Card.Body>
-            <Card.Title> {item.title} </Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>;
-      })}
-    </>
+    <Container className="mt-4 p-4">
+      <Row className="g-3 justify-content-center">
+        {products.map((product,i)=>{
+          return (
+            <Col xs={6} sm={4} md={3} lg={2} key={i}>
+              <Cards product={product} />
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
   );
-}
+};
 
-export default Cards
+export default Products
