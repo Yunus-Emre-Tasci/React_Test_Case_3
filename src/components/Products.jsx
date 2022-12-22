@@ -6,7 +6,7 @@ import products from "../products.json";
 
 const Products = () => {
   return (
-    <Container className="mt-4 p-4">
+    <Container className="mt-4 p-4 border" style={{background:"wheat"}}>
       <Row className="g-4 justify-content-center">
         {products.map((product,i)=>{
           return (
