@@ -6,11 +6,11 @@ import products from "../products.json";
 
 const Products = ({setBasket,basket,money,total}) => {
   return (
-    <Container className="mt-4 p-4 border">
+    <Container className="mt-4 p-4">
       <Row className="g-4 justify-content-center">
         {products.map((product,i)=>{
           return (
-            <Col xs={12} sm={6} lg={3} key={i}>
+            <Col xs={12} sm={6} lg={4} xl={3} key={i}>
               <Cards
                 product={product}
                 setBasket={setBasket}

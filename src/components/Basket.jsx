@@ -10,7 +10,7 @@ const Basket = ({total,basket,setBasket}) => {
   }
 
   return (
-    <Container className="mt-4 p-4 border" style={{ background: "wheat" }}>
+    <Container className="mt-4 p-4 rounded-2" style={{ background: "rgba(225,225,225,0.5)" }}>
       <h1>Alışveriş Detayları</h1>
       <Container className="mt-2 p-2">
         <ul>

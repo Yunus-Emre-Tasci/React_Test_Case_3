@@ -2,6 +2,7 @@ import React from 'react';
 import { ButtonGroup, Container } from 'react-bootstrap';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import moneyFormat from '../Helper';
 
 const Cards = ({ setBasket, basket, money, total, product }) => {
 
@@ -33,17 +34,27 @@ const removeBasket=()=>{
 
   return (
     <>
-      <Card className="m-4">
-        <Card.Img variant="top" src={product.image} />
+      <Card className="m-4 p-4" style={{ background: "rgba(225,225,225,.5)" }}>
+        <Card.Img variant="top" src={product.image} style={{maxWidth:"200px", maxHeight:"200px",objectFit:"cover"}}/>
         <Card.Body>
           <Card.Title> {product.title} </Card.Title>
-          <Card.Text>{product.price}</Card.Text>
-          <Container className="d-flex gap-2 justify-content-between align-items-center">
-            <Button onClick={removeBasket} className="w-50" variant="primary">
+          <Card.Text>{moneyFormat(product.price)}</Card.Text>
+          <Container className="d-flex gap-2 justify-content-around align-items-center">
+            <Button
+              onClick={removeBasket}
+              disabled={!checkBasket}
+              variant="primary"
+            >
               Sat
             </Button>
-            <span className="border-top border-bottom p-1"> {checkBasket&&checkBasket.amount||0} </span>
-            <Button onClick={addBasket} className="w-50" variant="primary">
+            <span className="border-top border-bottom p-1">
+              {(checkBasket && checkBasket.amount) || 0}
+            </span>
+            <Button
+              onClick={addBasket}
+              disabled={total + product.price > money}
+              variant="primary"
+            >
               Satın Al
             </Button>
           </Container>
