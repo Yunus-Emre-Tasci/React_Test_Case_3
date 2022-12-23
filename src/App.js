@@ -9,7 +9,7 @@ import products from "./products.json";
 
 
 const App=()=>{
-  const [money, setMoney] = useState(100000000)
+  const [money, setMoney] = useState(1000000000)
   const [basket, setBasket] = useState([])
   const [total, setTotal] = useState(0)
 
@@ -19,6 +19,8 @@ const App=()=>{
     setTotal(basket.reduce((acc,item)=>{
       return acc+(item.amount*(products.find(product=>product.id===item.id)).price)
     },0))
+    console.log(basket);
+    console.log(total);
   }, [basket])
   
 
@@ -36,7 +38,17 @@ const App=()=>{
         total
       } money={money}
       />
-      <Basket/>
+      {
+        total > 0 && < Basket basket = {
+          basket
+        }
+        total = {
+          total
+        }
+        setBasket = {
+          setBasket
+        }
+        />}
     </Container>
   )
 }

@@ -5,7 +5,8 @@ import Card from "react-bootstrap/Card";
 
 const Cards = ({ setBasket, basket, money, total, product }) => {
 
-  const checkBasket=basket.find(item=>item.id===product.id)
+const checkBasket=basket.find(item=>item.id===product.id)
+
 const addBasket=()=>{
   if(checkBasket){
     checkBasket.amount+=1
@@ -19,7 +20,16 @@ const addBasket=()=>{
     }
   }
 
-   
+const removeBasket=()=>{
+  const basketWithoutCurrent=basket.filter(item=>item.id!==product.id)
+  checkBasket.amount -= 1;
+  if (checkBasket.amount === 0) {
+    setBasket([...basketWithoutCurrent]);
+  } else {
+    setBasket([...basketWithoutCurrent,checkBasket])
+  }
+}  
+
 
   return (
     <>
@@ -29,7 +39,7 @@ const addBasket=()=>{
           <Card.Title> {product.title} </Card.Title>
           <Card.Text>{product.price}</Card.Text>
           <Container className="d-flex gap-2 justify-content-between align-items-center">
-            <Button className="w-50" variant="primary">
+            <Button onClick={removeBasket} className="w-50" variant="primary">
               Sat
             </Button>
             <span className="border-top border-bottom p-1"> {checkBasket&&checkBasket.amount||0} </span>

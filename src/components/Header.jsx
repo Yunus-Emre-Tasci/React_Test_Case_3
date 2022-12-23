@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import moneyFormat from '../Helper';
 
 const Header = ({total,money}) => {
   return (
@@ -10,24 +11,26 @@ const Header = ({total,money}) => {
     >
       {total > 0 && money - total !== 0 && (
         <h1>
-          Harcamak için{" "}
-          <span className="px-2 font-bold lh-lg font-monospace">
-            {" "}
-            {money - total}{" "}
-          </span>{" "}
-          var!{" "}
+          Harcamak için
+          <span className="px-2 fw-bold lh-lg font-monospace">
+            
+            ${moneyFormat(money - total)}
+          </span>
+          kaldı!
         </h1>
       )}
       {total === 0 && (
         <h1>
           Harcamak için
-          <span className="px-2 font-bold lh-lg font-monospace">{money}</span>
+          <span className="px-2 font-bold lh-lg font-monospace">
+            {moneyFormat(money)}
+          </span>
           var!
         </h1>
       )}
-      {money-total===0 && <h1>Paran bitti, lütfen biraz tasarruf yap!🙁</h1>
-
-      }
+      {money - total === 0 && (
+        <h1>Paran bitti, lütfen biraz tasarruf yap!🙁</h1>
+      )}
     </Container>
   );
 }
