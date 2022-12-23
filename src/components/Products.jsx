@@ -4,14 +4,20 @@ import Cards from './Cards';
 import products from "../products.json";
 
 
-const Products = () => {
+const Products = ({setBasket,basket,money,total}) => {
   return (
     <Container className="mt-4 p-4 border">
       <Row className="g-4 justify-content-center">
         {products.map((product,i)=>{
           return (
             <Col xs={12} sm={6} lg={3} key={i}>
-              <Cards product={product} />
+              <Cards
+                product={product}
+                setBasket={setBasket}
+                basket={basket}
+                total={total}
+                money={money}
+              />
             </Col>
           );
         })}

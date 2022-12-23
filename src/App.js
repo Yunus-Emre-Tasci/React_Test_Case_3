@@ -9,7 +9,7 @@ import products from "./products.json";
 
 
 const App=()=>{
-  const [money, setMoney] = useState(10000000)
+  const [money, setMoney] = useState(100000000)
   const [basket, setBasket] = useState([])
   const [total, setTotal] = useState(0)
 
@@ -26,7 +26,16 @@ const App=()=>{
   return(
     <Container fluid>
       <Header money={money} total={total} />
-      <Products/>
+      < Products setBasket = {
+        setBasket
+      }
+      basket = {
+        basket
+      }
+      total = {
+        total
+      } money={money}
+      />
       <Basket/>
     </Container>
   )

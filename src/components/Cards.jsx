@@ -3,7 +3,24 @@ import { ButtonGroup, Container } from 'react-bootstrap';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-const Cards = ({ product }) => {
+const Cards = ({ setBasket, basket, money, total, product }) => {
+
+  const checkBasket=basket.find(item=>item.id===product.id)
+const addBasket=()=>{
+  if(checkBasket){
+    checkBasket.amount+=1
+    setBasket([...basket.filter(item=>item.id!==product.id),checkBasket])
+    }
+    else{
+      setBasket([...basket,{
+        id:product.id,
+        amount:1
+      }])
+    }
+  }
+
+   
+
   return (
     <>
       <Card className="m-4">
@@ -15,8 +32,8 @@ const Cards = ({ product }) => {
             <Button className="w-50" variant="primary">
               Sat
             </Button>
-            <span className='border-top border-bottom p-1'>0</span>
-            <Button className="w-50" variant="primary">
+            <span className="border-top border-bottom p-1"> {checkBasket&&checkBasket.amount||0} </span>
+            <Button onClick={addBasket} className="w-50" variant="primary">
               Satın Al
             </Button>
           </Container>
