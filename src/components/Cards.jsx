@@ -15,7 +15,7 @@ const Cards = ({ product }) => {
             <Button className="w-50" variant="primary">
               Sat
             </Button>
-            <span>0</span>
+            <span className='border-top border-bottom p-1'>0</span>
             <Button className="w-50" variant="primary">
               Satın Al
             </Button>
