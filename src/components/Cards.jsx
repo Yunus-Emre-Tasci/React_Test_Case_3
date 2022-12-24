@@ -34,12 +34,12 @@ const removeBasket=()=>{
 
   return (
     <>
-      <Card className="m-4 p-4 shadow-lg" style={{ background: "rgba(225,225,225,.5)" }}>
-        <Card.Img variant="top" src={product.image} style={{maxWidth:"200px", maxHeight:"200px",objectFit:"cover"}}/>
+      <Card className="m-4 p-3 shadow-lg" style={{ background: "rgba(225,225,225,.5)" }}>
+        <Card.Img variant="top" src={product.image}/>
         <Card.Body>
           <Card.Title> {product.title} </Card.Title>
-          <Card.Text>{moneyFormat(product.price)}</Card.Text>
-          <Container className="d-flex gap-2 justify-content-around align-items-center">
+          <Card.Text>${moneyFormat(product.price)}</Card.Text>
+          <Container className="d-flex gap-2 justify-content-between align-items-center">
             <Button
               onClick={removeBasket}
               disabled={!checkBasket}
@@ -53,7 +53,7 @@ const removeBasket=()=>{
             <Button
               onClick={addBasket}
               disabled={total + product.price > money}
-              variant="primary"
+              variant="success"
             >
               Satın Al
             </Button>

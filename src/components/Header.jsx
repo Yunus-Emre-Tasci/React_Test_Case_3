@@ -7,13 +7,11 @@ const Header = ({total,money}) => {
     <Container
       fluid
       className="header sticky-top text-center text-white rounded-2 shadow-lg w-100"
-      style={{ letterSpacing: "0.4rem" }}
     >
       {total > 0 && money - total !== 0 && (
         <h1>
           Harcamak için
-          <span className="px-2 fw-bold lh-lg font-monospace">
-            
+          <span className="px-2 text-dark fw-bold lh-lg font-monospace">
             ${moneyFormat(money - total)}
           </span>
           kaldı!
@@ -22,8 +20,8 @@ const Header = ({total,money}) => {
       {total === 0 && (
         <h1>
           Harcamak için
-          <span className="px-2 font-bold lh-lg font-monospace">
-            {moneyFormat(money)}
+          <span className="px-2 text-dark fw-bold lh-lg font-monospace">
+            ${moneyFormat(money)}
           </span>
           var!
         </h1>
