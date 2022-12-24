@@ -19,8 +19,8 @@ const Basket = ({total,basket,setBasket}) => {
           ))}
         </ul>
       </Container>
-      <div className="d-flex justify-content-end border-top border-dark mt-2 p-2">
-        Toplam:${moneyFormat(total)}
+      <div className="d-flex justify-content-end border-top border-dark mt-2 p-2 fs-4 fw-bold">
+        Toplam: ${moneyFormat(total)}
       </div>
       <Container>
         <Button onClick={resetBasket} className="btn-danger mt-2 p-2">

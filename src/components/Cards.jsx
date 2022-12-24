@@ -34,11 +34,11 @@ const removeBasket=()=>{
 
   return (
     <>
-      <Card className="m-4 p-3 shadow-lg" style={{ background: "rgba(225,225,225,.5)" }}>
-        <Card.Img variant="top" src={product.image}/>
+      <Card className="m-4 p-3 shadow-lg" style={{ background: "rgba(225,225,225,.5)"}}>
+        <Card.Img variant="top" class='mh-100' style={{height:"200px"}} src={product.image}/>
         <Card.Body>
-          <Card.Title> {product.title} </Card.Title>
-          <Card.Text>${moneyFormat(product.price)}</Card.Text>
+          <Card.Title className='fs-4'> {product.title} </Card.Title>
+          <Card.Text className='fs-5'>${moneyFormat(product.price)}</Card.Text>
           <Container className="d-flex gap-2 justify-content-between align-items-center">
             <Button
               onClick={removeBasket}
