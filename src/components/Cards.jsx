@@ -34,7 +34,7 @@ const removeBasket=()=>{
 
   return (
     <>
-      <Card className="m-4 p-4" style={{ background: "rgba(225,225,225,.5)" }}>
+      <Card className="m-4 p-4 shadow-lg" style={{ background: "rgba(225,225,225,.5)" }}>
         <Card.Img variant="top" src={product.image} style={{maxWidth:"200px", maxHeight:"200px",objectFit:"cover"}}/>
         <Card.Body>
           <Card.Title> {product.title} </Card.Title>

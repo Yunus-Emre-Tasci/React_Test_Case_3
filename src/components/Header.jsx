@@ -6,7 +6,7 @@ const Header = ({total,money}) => {
   return (
     <Container
       fluid
-      className="header sticky-top text-center text-white rounded-2 shadow-lg"
+      className="header sticky-top text-center text-white rounded-2 shadow-lg w-100"
       style={{ letterSpacing: "0.4rem" }}
     >
       {total > 0 && money - total !== 0 && (
